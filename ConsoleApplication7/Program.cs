@@ -6,31 +6,20 @@ using System.Threading;
 
 namespace ConsoleApplication7
 {
+    /// <summary>
+    /// The program.
+    /// </summary>
     class Program
     {
-        static bool Validator<T>(string line)
-        {
-            var valueTypeConverter = TypeDescriptor.GetConverter(typeof(T));
-            if (!valueTypeConverter.CanConvertFrom(typeof (string))) return false;
-
-            try
-            {
-                valueTypeConverter.ConvertFrom(line);
-                return true;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                return false; 
-            }
-        }
+        /// <summary>
+        /// The main.
+        /// </summary>
+        /// <param name="args">
+        /// The args.
+        /// </param>
         static void Main(string[] args)
         {
-            bool repeat = false;
-            while (!repeat)
-            {
-                repeat = Validator<int>(Console.ReadLine());
-            }
+            var myList = new List<int>();
             Console.ReadKey(); 
         }
     }
